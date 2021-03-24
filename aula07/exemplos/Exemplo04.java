@@ -18,7 +18,6 @@ public class Exemplo04 {
         System.out.println("Você digitou " + numero);
                     
         } catch (InputMismatchException ex) {
-            //TODO: handle exception
             System.out.println("Digitação Inválida");
             System.out.println(ex.getMessage());
             //ex.printStackTrace(); // ==>>> mostra todo os caminhos do erro o trace do erro

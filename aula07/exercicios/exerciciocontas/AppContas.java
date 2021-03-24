@@ -24,24 +24,23 @@ public class AppContas {
 
             switch (opcao) {
             case 1:
-                System.out.println("Informe o número da Conta");
-                numeroConta = teclado.nextInt();
-                contas.novaContaCorrente(numeroConta);
+                numeroConta = contas.novaContaCorrente();
+                System.out.println("Conta criada: " + numeroConta);
                 break;// interrompe a execução do case
 
             case 2:
-                System.out.println("Criando uma conta Especial");
-                numeroConta = teclado.nextInt();
                 System.out.println("Informe o limite da conta: ");
                 limite = teclado.nextDouble();
-                contas.novaContaEspecial(numeroConta, limite);
+                numeroConta = contas.novaContaEspecial(limite);
+                System.out.println("Conta criada: " + numeroConta);
 
                 break;
 
             case 3:
                 System.out.println("Criando uma conta Poupança");
-                numeroConta = teclado.nextInt();
-                contas.noovaContaPoupanca(numeroConta);
+                numeroConta = contas.novaContaPoupanca();
+                System.out.println("Conta criada: " + numeroConta);
+
                 break;
 
             case 4:
