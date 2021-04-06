@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Gama Academy</title>
+
+    <!-- chamando a biblioteca de css-->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+</head>
+
+<body>
+
+    <!-- inserindo um menu utilizando uma tabela-->
+    <!-- -->
+    <table border="0" width="100%" class="menu">
+        <tr>
+            <!--   <td align="center"><a href="../html/index.html"><img src="../imagens/logo.png" width="160" height="40"></a>   </td>-->
+            <td align="center"><a href="../html/index.html"><img src="../imagens/logo.png" width="160" height="40"></a>
+            </td>
+            <td align="right"> QUEM SOMOS</td>
+            <td align="right"> PARA PESSOAS</td>
+            <td align="right"> PARA EMPRESAS</td>
+            <td align="right"> CONTATOS</td>
+            <td align="right"> CONTEÚDOS</td>
+        </tr>
+    </table>
+    <br>
+
+    <!-- criando um formulário de consulta na nossa página -->
+    <!-- tag para criar formulário <form> -->
+
+    <form id="formulario_contato" method="POST">
+        <!-- criando uma área de desenvolvcimento par ao formulário-->
+
+        <fieldset>
+            <!--criando uma legenda no nosso formulário-->
+            <legend> Formulário de Cursos da Gama Academy</legend>
+            <!-- criando campos no formulário-->
+            <!-- tag <label> para inserir campo-->
+            <label>Nome:</label><input type="text" name="nome_cliente" class="campo_nome" required><br><br>
+            <label>Email:</label><input type="email" name="email_cliente" class="campo_email" required><br><br>
+            <label>Senha:</label><input type="password" name="senha_cliente" required><br><br>
+            <!-- Criando campos utilizando a tag <radio>-->
+            <label>Gênero:</label>
+            <input type="radio" name="genero_cliente" value="Feminino">Feminino
+            <input type="radio" name="genero cliente" value="Masculino">Masculino
+            <input type="radio" name="genero cliente" value="Outros">Outros<br><br>
+            <!-- Criando uma caixa de listagem de cursos como DropDown-->
+            <!-- para criar o dropdown utilizaremos duas tags <select> <option>-->
+            <label> Escolha o qual curso deseja cursar</label>
+            <select riquired>
+                <option value="" name="cursos_clientes"></option>
+                <option value="HTML" name="cursos_clientes">HTML</option>
+                <option value="CSS" name="cursos_clientes">CSS</option>
+                <option value="JS" name="cursos_clientes">JS</option>
+                <option value="XML" name="cursos_clientes">XML</option>
+            </select><br><br>
+            <!-- criando campo para escolha do período-->
+            <!-- utilizar a tag <chek box>-->
+            <label>Informe qual o período deseja cursar</label>
+            <input type="checkbox" name="periodo_cliente" value="manhã">Manhã
+            <input type="checkbox" name="periodo_cliente" value="tarde">Tarde
+            <input type="checkbox" name="periodo_cliente" value="noite">Noite
+            </select><br><br>
+            <!-- criar label para informar a data que deseja cursar-->
+            <!-- tag <input="date">-->
+            <label>Informe a data que deseja cursar</label>
+            <input type="date" name="data_curso_cliente" required><br><br>
+
+            <!-- criando um campo de observação no formulário-->
+            <!-- utilizando a tag <textarea>-->
+            <label>Mensagem:</label><br>
+            <textarea name="mensagem_cliente" cols="35" rows="3"></textarea><br><br>
+            <!-- criando um campo para anexar comprovante-->
+            <!-- utilizar a tag <input=file>-->
+
+            <label>Insira um comprovante de residência:</label>
+            <input type="file" name="arquivo_required" required><br><br>
+
+
+
+            <!-- Criando um botão de envio de dados para o formulário-->
+            <input type="submit" value="Enviar" class="botao">
+
+
+        </fieldset>
+
+    </form>
+
+</body>
+
+</html>
