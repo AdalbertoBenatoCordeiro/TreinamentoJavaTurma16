@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,38 +15,36 @@
         var mensagem="Sejam bem vindo a ";
         alert (mensagem+empresa);*/
 
-       /*var nome = prompt("Olá seja bem vindo a Gama Academy, informe o seu nome");
-        alert ("Muito prazer "+nome +" navegue na nossa página");*/
+        /*var nome = prompt("Olá seja bem vindo a Gama Academy, informe o seu nome");
+         alert ("Muito prazer "+nome +" navegue na nossa página");*/
 
-       // Criando uma função em JavaScript 
-       function mensagem()
-       {
-           alert("Olá meu amigo seja bem vindo");
-       } 
-
-
-       function validar()
-       {
-           var nome = contato.nome_cliente.value;
-           var email= contato.email_cliente.value;
-
-           // alert("Nome do Cliente "+ nome + " email do cliente "+email);
-
-        if(nome==""){
-            alert("O preenchimento do campo Nome é obrigatório");
-            contato.nome_cliente.focus();
-            return false;
-         
+        // Criando uma função em JavaScript 
+        function mensagem() {
+            alert("Olá meu amigo seja bem vindo");
         }
 
-        if(email=="" || email.indexOf('@')==-1){
-            alert("O preenchimento do campo email obrigatório, verifique se o mesmo está correto");
-            contato.email_cliente.focus();
-            return false; 
-        }
 
-        alert("Prezado(a) "+ nome+ " iremos enviar o nosso portifólio dos cursos para o seu email "+email);
-       }
+        function validar() {
+            var nome = contato.nome_cliente.value;
+            var email = contato.email_cliente.value;
+
+            // alert("Nome do Cliente "+ nome + " email do cliente "+email);
+
+            if (nome == "") {
+                alert("O preenchimento do campo Nome é obrigatório");
+                contato.nome_cliente.focus();
+                return false;
+
+            }
+
+            if (email == "" || email.indexOf('@') == -1) {
+                alert("O preenchimento do campo email obrigatório, verifique se o mesmo está correto");
+                contato.email_cliente.focus();
+                return false;
+            }
+
+            alert("Prezado(a) " + nome + " iremos enviar o nosso portifólio dos cursos para o seu email " + email);
+        }
 
 
     </script>
@@ -53,21 +52,23 @@
 
 
 </head>
+
 <body>
-        <!--
+    <!--
         <h3>Click no botão abaixo para ter uma interação</h3>
         <form id="formulario" method="POST">
             <input type="button" onclick="mensagem()" value="Click">
         </form>-->
 
-        <form id="contato" method="POST">
-            Nome:<input type="text" name="nome_cliente"><br><br>
-            Email:<input type="text" name="email_cliente"><br><br>
+    <form id="contato" method="POST">
+        Nome:<input type="text" name="nome_cliente"><br><br>
+        Email:<input type="text" name="email_cliente"><br><br>
 
-            <input type="submit" onclick="return validar()" value="Enviar">
+        <input type="submit" onclick="return validar()" value="Enviar">
 
 
-        </form>
+    </form>
 
 </body>
+
 </html>
