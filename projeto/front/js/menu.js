@@ -5,7 +5,7 @@ function validaLogin() {
     }
     let user = JSON.parse(userTxt);
     document.getElementById("user").innerHTML = `nome: ${user.nome} RACF ${user.racf}`
-    document.getElementById("foto").innerHTML = `<img src=${user.linkFoto}>`
+    document.getElementById("foto").innerHTML = `<img id="fotoUser" src=${user.linkFoto}>`
 }
 function logout() {
     localStorage.removeItem("userlogged");
@@ -57,10 +57,9 @@ function exibirDadosAlarmes(listaAlarmes) {
     document.getElementById("tabela").innerHTML = tabela
 }
 function exibirDadosEventos(listaEventos) {
-    console.log(listaEventos);
     let tabela = '<table class="table table-sm"> <tr> <th>data</th> <th>alarme</th> <th>equipamento</th>  </tr>'
     for (i = 0; i < listaEventos.length; i++) {
-        let databr = new Date(listaEventos[i].dataevt).toLocaleDateString("pt-BR", { timeZone: 'UTC' });
+        let databr = new Date(listaEventos[i].dataEvt).toLocaleDateString("pt-BR", { timeZone: 'UTC' });
         tabela = tabela + `<tr> <td>${databr}</td>  <td>${listaEventos[i].alarme.nome}</td> <td>${listaEventos[i].equipamento.hostname}</td> </tr>`
     }
     tabela = tabela + '</table>'

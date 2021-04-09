@@ -18,23 +18,26 @@
 </head>
 
 <body onload="validaLogin()">
+    <div class="container colum-12 center">
+        <h3 class="underline" > Itaumon - Dashboard de Eventos</h3>
+        <button onclick="logout()">Logout</button>
+
     <div id="user"></div>
     <div id="foto"></div>
-    <button onclick="logout()">Logout</button>
 
     <br>
-
+    <br>
     <input type="date" id="dataInicio">
     <input type="date" id="dataFinal">
     <br>
     <br>
-    <button class = "btn btn-outline-primary" onclick="gerarRelatorioEventos()">Gerar Relatório Eventos</button>
-   
-    <button class = "btn btn-outline-primary" onclick="gerarRelatorioAlarmes()">Gerar Relatório Alarmes</button>
-    <br>
-    <br>
-    <div id="tabela"></div>
+    <button class="btn btn-outline-primary" onclick="gerarRelatorioEventos()">Gerar Relatório Eventos</button>
 
+    <button class="btn btn-outline-primary" onclick="gerarRelatorioAlarmes()">Gerar Relatório Alarmes</button>
+    <br>
+    <br>
+    <div id="tabela" class="table-overflow"></div>
+</div>
 </body>
 
 

@@ -19,3 +19,10 @@ img{
 .row{
     padding-top: 1em;
 }
+.underline { 
+    text-decoration-line: underline;
+}
+.table-overflow {
+    max-height: 300px;
+    overflow-y: auto;
+}
