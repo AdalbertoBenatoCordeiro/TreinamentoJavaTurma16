@@ -15,29 +15,49 @@
     <script src="/js/menu.js"></script>
 
     <title>Menu</title>
+
+
 </head>
 
 <body onload="validaLogin()">
-    <div class="container colum-12 center">
-        <h3 class="underline" > Itaumon - Dashboard de Eventos</h3>
-        <button onclick="logout()">Logout</button>
+    <div class="container col-12">
 
-    <div id="user"></div>
-    <div id="foto"></div>
+        <div class="row titulo col-12">
+            <h4 class="underline">Itaumon - Dashboard de eventos </h3>
+                <button class="btn btn-sm font " onclick="logout()">Logout</button>
+        </div>
+        <div class="row col-12">
+            <div id="foto"></div>
+            <div id="user" class="font pl-2" style="align-self: center;"></div>
+        </div>
+        <br>
+        <h5 class="tituloCentro font">Escolha qual relatório deseja executar</h5>
+        <!-- card de escolhas -->
+        <br>
+        <div style="text-align: center;">
 
-    <br>
-    <br>
-    <input type="date" id="dataInicio">
-    <input type="date" id="dataFinal">
-    <br>
-    <br>
-    <button class="btn btn-outline-primary" onclick="gerarRelatorioEventos()">Gerar Relatório Eventos</button>
+            <a href="/eventos.html" class="btn btn-light">Relatório de eventos</a>
+            <a href="/alarmes.html" class="btn btn-light">Relatório de alarmes</a>
 
-    <button class="btn btn-outline-primary" onclick="gerarRelatorioAlarmes()">Gerar Relatório Alarmes</button>
-    <br>
-    <br>
-    <div id="tabela" class="table-overflow"></div>
-</div>
+        </div>
+
+
+        <!-- <div id="datas" class="">
+            <input type="date" id="dataInicio">
+            <input type="date" id="dataFinal">
+        </div>
+        <br>
+        <button id="btnEventos" class="btn btn-outline-primary" onclick="gerarRelatorioEventos()">Gerar Relatório
+            Eventos</button>
+        
+        <button id="btnAlarme" class="btn btn-outline-primary" onclick="gerarRelatorioAlarmes()">Gerar Relatório
+            Alarmes</button>
+        <br>
+        <br>
+        <div id="tabela" class="table-overflow"></div> -->
+
+    </div>
+
 </body>
 
 

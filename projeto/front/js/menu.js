@@ -1,16 +1,43 @@
+//funções de login
+
 function validaLogin() {
-    let userTxt = localStorage.getItem("userlogged");
-    if (!userTxt) {
+
+    let usertxt = localStorage.getItem("userlogged");
+    if (!usertxt) {
         window.location = "index.html"
     }
-    let user = JSON.parse(userTxt);
-    document.getElementById("user").innerHTML = `nome: ${user.nome} RACF ${user.racf}`
-    document.getElementById("foto").innerHTML = `<img id="fotoUser" src=${user.linkFoto}>`
+
+    let user = JSON.parse(usertxt);
+
+    document.getElementById("user").innerHTML = `Nome: ${user.nome}               <br> RACF: ${user.racf} `
+    document.getElementById("foto").innerHTML = `<img src=${user.linkFoto}>`
 }
+
 function logout() {
     localStorage.removeItem("userlogged");
     window.location = "index.html"
 }
+
+//funcoes de relatorio de alarme
+function gerarRelatorioAlarme() {
+    fetch("http://localhost:8080/alarmes/all")
+        .then(res => tratarResposta(res))
+}
+
+function tratarResposta(resposta) {
+    if (resposta) {
+        resposta.json().then(res => exibirDadosAlarme(res))
+    }
+}
+function exibirDadosAlarme(listaAlarmes) {
+    let tabela = '<table class="table table-sm titulo-tabela border-black"> <tr class="table-dark font"> <th>Nome</th> <th>Descricao</th> </tr>'
+    for (i = 0; i < listaAlarmes.length; i++) {
+        tabela = tabela + `<tr class="border-black"> <td>${listaAlarmes[i].nome} </td> <td> ${listaAlarmes[i].descricao} </td>   </tr>`
+    }
+    tabela = tabela + '</table>'
+    document.getElementById("tabela").innerHTML = tabela
+}
+// funcoes de relatorio de evento
 function gerarRelatorioEventos() {
     let dataInicio = document.getElementById("dataInicio").value
     let dataFinal = document.getElementById("dataFinal").value
@@ -22,45 +49,24 @@ function gerarRelatorioEventos() {
     let msg = {
         method: 'POST',
         body: JSON.stringify(datas),
-        headers:{
-            'Content-type':'application/json'
+        headers: {
+            'Content-type': 'application/json'
         }
     }
     fetch("http://localhost:8080/evento/data", msg)
         .then(res => tratarRespostaEvento(res))
-   
-}
-    function gerarRelatorioAlarmes() {
-        
-    fetch("http://localhost:8080/alarmes/all")
-        .then(res => tratarResposta(res))
-    
 }
 function tratarRespostaEvento(resposta) {
     if (resposta) {
-        resposta.json().then(res => exibirDadosEventos(res))
+        resposta.json().then(res => exibirDadosEvento(res))
     }
 }
-
-function tratarResposta(resposta) {
-    if (resposta) {
-        resposta.json().then(res => exibirDadosAlarmes(res))
-    }
-}
-
-function exibirDadosAlarmes(listaAlarmes) {
-    let tabela = '<table class="table table-sm"> <tr> <th>nome</th> <th>descricao</th> </tr>'
-    for (i = 0; i < listaAlarmes.length; i++) {
-        tabela = tabela + `<tr> <td>${listaAlarmes[i].nome}</td> <td>${listaAlarmes[i].descricao}</td> </tr>`
-    }
-    tabela = tabela + '</table>'
-    document.getElementById("tabela").innerHTML = tabela
-}
-function exibirDadosEventos(listaEventos) {
-    let tabela = '<table class="table table-sm"> <tr> <th>data</th> <th>alarme</th> <th>equipamento</th>  </tr>'
+function exibirDadosEvento(listaEventos) {
+    console.log(listaEventos);
+    let tabela = '<table class="table table-sm font border-black"> <tr class="table-dark font"> <th>Data</th> <th>Alarme</th> <th> Equipamento </th> </tr>'
     for (i = 0; i < listaEventos.length; i++) {
         let databr = new Date(listaEventos[i].dataEvt).toLocaleDateString("pt-BR", { timeZone: 'UTC' });
-        tabela = tabela + `<tr> <td>${databr}</td>  <td>${listaEventos[i].alarme.nome}</td> <td>${listaEventos[i].equipamento.hostname}</td> </tr>`
+        tabela = tabela + `<tr class="border-black"> <td>${databr} </td> <td> ${listaEventos[i].alarme.nome} </td> <td> ${listaEventos[i].equipamento.hostname} </td> </tr>`
     }
     tabela = tabela + '</table>'
     document.getElementById("tabela").innerHTML = tabela
